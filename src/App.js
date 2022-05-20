@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Feed from "./components/Feed.jsx";
+import "./App.css";
+import useInifniteScroll from "./hooks/useInfiniteScroll.jsx";
+import useAxios from "./hooks/useAxios.jsx";
+import PhotoCard from "./components/PhotoCard";
+import { createTheme, CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
 
 function App() {
+  const darkTheme = createTheme({
+    palette: { mode: "dark" },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={darkTheme}>
+      <CssBaseline/>
+        <Feed />
+      </ThemeProvider>
+    </>
   );
 }
 
